@@ -1,6 +1,8 @@
 package models;
 
-public abstract class Positioned implements Positionable{
+import behaviors.Positionable;
+
+public abstract class Positioned implements Positionable {
     int x;
     int y;
 

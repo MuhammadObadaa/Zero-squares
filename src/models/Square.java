@@ -1,14 +1,20 @@
 package models;
 
-public class Square extends Goal implements Movable, Blocker{
-    private Color color;
+import behaviors.Blocker;
+import behaviors.Movable;
+import constants.Color;
+import constants.MoveDirection;
 
-    public Square(int x, int y){
-        super(x, y);
+public class Square extends Node implements Movable, Blocker {
+    protected static char symbol = '■';
+
+    public Square(int x, int y, Color color) {
+        super(x, y, color);
     }
 
-    public Color getColor() {
-        return color;
+    @Override
+    public char getSymbol() {
+        return Square.symbol;
     }
 
     @Override
@@ -16,7 +22,6 @@ public class Square extends Goal implements Movable, Blocker{
         this.x = moveDirection.getNewX(this.x);
         this.y = moveDirection.getNewY(this.y);
     }
-
 
     @Override
     public boolean blocks(Movable movable, MoveDirection moveDirection) {

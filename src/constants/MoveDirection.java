@@ -1,4 +1,6 @@
-package models;
+package constants;
+
+import models.Positioned;
 
 import java.util.Comparator;
 import java.util.function.Function;

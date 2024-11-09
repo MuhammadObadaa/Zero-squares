@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="493ddc36-b5f7-4c80-a549-a2762a31dc4c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/constants/Color.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Blocker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Blocker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Border.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Border.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Color.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Goal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Goal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Movable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Movable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/MoveDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/MoveDirection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Positionable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Positionable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Wall.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +29,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -37,20 +50,44 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Documents/IntellSearchAlgo/zero-squares-temp&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;D:/Documents/zero-squares/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="models" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="zero-squares" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -71,10 +108,15 @@
       <workItem from="1731041724161" duration="8235000" />
       <workItem from="1731056709789" duration="26000" />
       <workItem from="1731056747839" duration="224000" />
+      <workItem from="1731147174926" duration="1771000" />
+      <workItem from="1731168428590" duration="301000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/zero_squares$Main.ic" NAME="Main Coverage Results" MODIFIED="1731075874623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
