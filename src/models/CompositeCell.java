@@ -62,7 +62,7 @@ public class CompositeCell extends Positioned implements Blocker, Cloneable {
 
         Color fg = null;
         Color bg;
-        char symbol = ' ';
+        String symbol = "   ";
 
         //TODO: assert cell is node when has a goal or square;
 

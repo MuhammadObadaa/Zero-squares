@@ -5,7 +5,7 @@ import constants.Color;
 
 public abstract class Cell extends Positioned implements Blocker,Cloneable {
     protected Color color;
-    protected static char symbol = ' ';//'█';
+    protected static String symbol = " b ";//'█';
 
     public Cell(int x, int y) {
         super(x, y);
@@ -16,7 +16,7 @@ public abstract class Cell extends Positioned implements Blocker,Cloneable {
         this.color = color;
     }
 
-    public char getSymbol() {
+    public String getSymbol() {
         return Cell.symbol;
     }
 
