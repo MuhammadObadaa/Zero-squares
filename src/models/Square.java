@@ -5,7 +5,7 @@ import behaviors.Movable;
 import constants.Color;
 import constants.MoveDirection;
 
-public class Square extends Node implements Movable, Blocker {
+public class Square extends Node implements Movable {
     protected static char symbol = '■';
 
     public Square(int x, int y, Color color) {

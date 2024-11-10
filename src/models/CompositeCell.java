@@ -5,7 +5,7 @@ import behaviors.Movable;
 import constants.Color;
 import constants.MoveDirection;
 
-public class CompositeCell extends Positioned implements Blocker {
+public class CompositeCell extends Positioned implements Blocker, Cloneable {
     // Custom composite design pattern
 
     protected Cell cell;
@@ -34,6 +34,27 @@ public class CompositeCell extends Positioned implements Blocker {
         else if(this.goal != null)
             return this.goal;
         return null;
+    }
+
+    public void dropSquare(){
+        this.square = null;
+    }
+
+    private void dropGoal(){
+        this.goal = null;
+    }
+
+    public boolean squareInGoal(){
+        if(this.goal == null || this.square == null)
+            return false;
+
+        if(this.goal.getColor() == this.square.getColor()){
+            dropGoal();
+            dropSquare();
+
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -66,5 +87,14 @@ public class CompositeCell extends Positioned implements Blocker {
             return true;
         }
         return this.cell.blocks(movable, moveDirection);
+    }
+
+    @Override
+    public CompositeCell clone() throws CloneNotSupportedException {
+        CompositeCell clone = new CompositeCell(this.cell);
+        clone.square = (Square) this.square.clone();
+        clone.goal = (Goal) this.goal.clone();
+
+        return clone;
     }
 }

@@ -5,7 +5,7 @@ import behaviors.Movable;
 import constants.Color;
 import constants.MoveDirection;
 
-public class Wall extends Cell implements Blocker {
+public class Wall extends Cell {
 
     public Wall(int x, int y) {
         super(x, y, Color.BLACK);
