@@ -1,6 +1,7 @@
 package models;
 
 import constants.Color;
+import constants.MoveDirection;
 import factories.CellFactory;
 import factories.NodeFactory;
 
@@ -75,4 +76,7 @@ public class Game {
         this.state.print();
     }
 
+    public void move(MoveDirection direction){
+        this.state.move(direction);
+    }
 }
