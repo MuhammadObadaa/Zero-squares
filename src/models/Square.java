@@ -6,14 +6,14 @@ import constants.Color;
 import constants.MoveDirection;
 
 public class Square extends Node implements Movable {
-    protected static char symbol = '■';
+    protected static String symbol = " ■ ";
 
     public Square(int x, int y, Color color) {
         super(x, y, color);
     }
 
     @Override
-    public char getSymbol() {
+    public String getSymbol() {
         return Square.symbol;
     }
 
