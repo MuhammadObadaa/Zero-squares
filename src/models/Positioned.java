@@ -6,7 +6,6 @@ public abstract class Positioned implements Positionable {
     int x;
     int y;
 
-
     public Positioned(int x, int y){
         this.x = x;
         this.y = y;
@@ -30,5 +29,10 @@ public abstract class Positioned implements Positionable {
     @Override
     public void setY(int y) {
         this.y = y;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this.x == ((Positioned) obj).x && this.y == ((Positioned) obj).y;
     }
 }
