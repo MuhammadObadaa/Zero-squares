@@ -10,9 +10,12 @@ import java.io.FileReader;
 
 public class Game {
     private State state;
+    private String filePath;
     // make the file accepts the initial grid have a square in another goal
 
     public Game(String filePath){
+        this.filePath = filePath;
+
         int height = 0,width = 0,lineLength;
 
         try{
@@ -88,6 +91,14 @@ public class Game {
 
     public void move(MoveDirection direction){
         this.state.move(direction);
+
+        if(!state.getStatus()){
+            this.reset();
+        }
+    }
+
+    public void reset(){
+        this.setGame(this.state.height,this.state.width,this.filePath);
     }
 
     public State getState() {
