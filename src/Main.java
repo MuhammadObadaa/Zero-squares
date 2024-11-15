@@ -13,7 +13,7 @@ public class Main {
 
         game.show();
 
-        while(true){
+        while(!game.finished()){
             try {
                 stateController.control();
             } catch (IOException e) {
@@ -22,5 +22,7 @@ public class Main {
 
             game.show();
         }
+
+        System.out.println("Winner");
     }
 }
