@@ -14,7 +14,7 @@ public class Main {
 
         FullSearchController f = new FullSearchController(game.getState());
         int i = 0;
-        ArrayList<State> s = f.DFSSearch();
+        ArrayList<State> s = f.BFSSearch();
         System.out.println(s.size());
 
         for (State state : s) {
