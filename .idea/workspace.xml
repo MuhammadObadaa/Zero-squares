@@ -7,8 +7,9 @@
     <list default="true" id="493ddc36-b5f7-4c80-a549-a2762a31dc4c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/factories/CellFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/factories/CellFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/CompositeCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/CompositeCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/FullSearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/FullSearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/State.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +41,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Debug",
+    "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "dev",
@@ -103,7 +104,7 @@
       <workItem from="1731177387323" duration="1441000" />
       <workItem from="1731228370494" duration="2471000" />
       <workItem from="1731236227207" duration="2497000" />
-      <workItem from="1731667341849" duration="26646000" />
+      <workItem from="1731667341849" duration="31995000" />
     </task>
     <servers />
   </component>
@@ -120,17 +121,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/models/State.java</url>
-          <line>89</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/zero_squares$Main.ic" NAME="Main Coverage Results" MODIFIED="1731075874623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />

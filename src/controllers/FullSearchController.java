@@ -1,5 +1,6 @@
 package controllers;
 
+import constants.MoveDirection;
 import models.State;
 
 import java.util.*;

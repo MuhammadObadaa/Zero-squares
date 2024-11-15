@@ -91,6 +91,7 @@ public class State implements Cloneable {
 
                 if(grid[nx][ny].squareInGoal()){
                     squareIterator.remove();
+                    this.goals.remove(this.grid[nx][ny].getGoal());
                     break;
                 }
 
@@ -119,7 +120,7 @@ public class State implements Cloneable {
         for (Square square : this.squares) {
             equals = false;
             for (Square subSquare : ((State) obj).squares) {
-                if(subSquare.equals(square)){
+                if(square.equals(subSquare)){
                     equals = true;
                     break;
                 }
@@ -132,7 +133,7 @@ public class State implements Cloneable {
         for (Goal goal : this.goals) {
             equals = false;
             for (Goal subGoal : ((State) obj).goals) {
-                if(subGoal.equals(goal)){
+                if(goal.equals(subGoal)){
                     equals = true;
                     break;
                 }
@@ -151,19 +152,17 @@ public class State implements Cloneable {
         clone.squares = new ArrayList<>();
         clone.goals = new ArrayList<>();
 
-        for (Square square : this.squares) {
-            clone.squares.add((Square)square.clone());
-        }
-
-        for (Goal goal : this.goals) {
-            clone.goals.add((Goal)goal.clone());
-        }
+        Node sampleNode;
 
         clone.grid = new CompositeCell[this.height][this.width];
 
         for (int i = 0; i < this.height; i++) {
             for (int j = 0; j < this.width; j++) {
                 clone.grid[i][j] = this.grid[i][j].clone();
+                if((sampleNode = clone.grid[i][j].getGoal()) != null)
+                    clone.goals.add((Goal)sampleNode);
+                if((sampleNode = clone.grid[i][j].getSquare()) != null)
+                    clone.squares.add((Square)sampleNode);
             }
         }
 
