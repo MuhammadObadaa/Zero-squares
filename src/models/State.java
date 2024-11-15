@@ -26,9 +26,9 @@ public class State implements Cloneable {
 
         for (int i = 0; i < this.height; i++) {
             for (int j = 0; j < this.width; j++) {
-                if((sampleNode = grid[i][j].getNode()) instanceof Square)
+                if((sampleNode = grid[i][j].getSquare()) != null)
                     this.squares.add((Square)sampleNode);
-                else if ((sampleNode = grid[i][j].getNode()) instanceof Goal)
+                if ((sampleNode = grid[i][j].getGoal()) != null)
                     this.goals.add((Goal)sampleNode);
             }
         }

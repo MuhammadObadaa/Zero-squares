@@ -38,6 +38,8 @@ public enum Color {
             return Color.BLUE;
         }else if(symbol == YELLOW.symbol) {
             return Color.YELLOW;
+        }else if(symbol == GREEN.symbol) {
+            return Color.GREEN;
         }else{
             return null;
         }
