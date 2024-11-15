@@ -7,12 +7,7 @@
     <list default="true" id="493ddc36-b5f7-4c80-a549-a2762a31dc4c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/CompositeCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/CompositeCell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Goal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Goal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Positioned.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Positioned.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Square.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/State.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,12 +103,23 @@
       <workItem from="1731177387323" duration="1441000" />
       <workItem from="1731228370494" duration="2471000" />
       <workItem from="1731236227207" duration="2497000" />
-      <workItem from="1731667341849" duration="2733000" />
+      <workItem from="1731667341849" duration="3565000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/zero_squares$Main.ic" NAME="Main Coverage Results" MODIFIED="1731075874623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />

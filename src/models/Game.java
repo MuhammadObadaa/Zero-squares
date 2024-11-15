@@ -83,4 +83,8 @@ public class Game {
     public State getState() {
         return this.state;
     }
+
+    public boolean finished(){
+        return this.state.empty();
+    }
 }

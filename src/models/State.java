@@ -45,6 +45,11 @@ public class State implements Cloneable {
         }
     }
 
+    public boolean empty(){
+        // Because there could be Goals more than squares, it's fine to check the squares list only;
+        return this.squares.isEmpty();
+    }
+
     public void move(MoveDirection direction){
         this.squares.sort(direction.getComparator());
 
