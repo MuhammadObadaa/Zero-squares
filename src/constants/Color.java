@@ -8,7 +8,8 @@ public enum Color {
     BLUE('B',4),
     PURPLE('P',5),
     CYAN('C',6),
-    WHITE('W',7);
+    WHITE('W',7),
+    NOCOLOR('O',8);
 
     //BG_BLACK('K',"\u001B[40m"),
 
@@ -42,6 +43,8 @@ public enum Color {
             return Color.GREEN;
         }else if(symbol == CYAN.symbol) {
             return Color.CYAN;
+        }else if(symbol == NOCOLOR.symbol) {
+            return Color.NOCOLOR;
         }else{
             return null;
         }
