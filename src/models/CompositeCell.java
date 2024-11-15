@@ -92,8 +92,11 @@ public class CompositeCell extends Positioned implements Blocker, Cloneable {
     @Override
     public CompositeCell clone() throws CloneNotSupportedException {
         CompositeCell clone = new CompositeCell(this.cell);
-        clone.square = (Square) this.square.clone();
-        clone.goal = (Goal) this.goal.clone();
+
+        if(this.square != null)
+            clone.square = (Square) this.square.clone();
+        if(this.goal != null)
+            clone.goal = (Goal) this.goal.clone();
 
         return clone;
     }

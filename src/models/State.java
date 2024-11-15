@@ -94,7 +94,40 @@ public class State implements Cloneable {
     }
 
     @Override
-    protected State clone() throws CloneNotSupportedException {
+    public boolean equals(Object obj) {
+        boolean equals;
+
+        for (Square square : this.squares) {
+            equals = false;
+            for (Square subSquare : ((State) obj).squares) {
+                if(subSquare.equals(square)){
+                    equals = true;
+                    break;
+                }
+            }
+
+            if(!equals)
+                return false;
+        }
+
+        for (Goal goal : this.goals) {
+            equals = false;
+            for (Goal subGoal : ((State) obj).goals) {
+                if(subGoal.equals(goal)){
+                    equals = true;
+                    break;
+                }
+            }
+
+            if(!equals)
+                return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public State clone() throws CloneNotSupportedException {
         State clone = (State)super.clone();
         clone.squares = new ArrayList<>();
         clone.goals = new ArrayList<>();
@@ -103,7 +136,7 @@ public class State implements Cloneable {
             clone.squares.add((Square)square.clone());
         }
 
-        for (Goal goal : clone.goals) {
+        for (Goal goal : this.goals) {
             clone.goals.add((Goal)goal.clone());
         }
 
@@ -118,28 +151,22 @@ public class State implements Cloneable {
         return clone;
     }
 
-    public ArrayList<State> nextState(){
+    public ArrayList<State> nextStates(){
         ArrayList<State> nextStates = new ArrayList<>();
-        State rState,uState,lState,dState;
 
-        try {
-            rState = this.clone();
-            uState = this.clone();
-            lState = this.clone();
-            dState = this.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new RuntimeException(e);
+        for (MoveDirection moveDirection : MoveDirection.values()) {
+            State s;
+            try {
+                s = this.clone();
+            } catch (CloneNotSupportedException e) {
+                throw new RuntimeException(e);
+            }
+
+            s.move(moveDirection);
+
+            if (!this.equals(s))
+                nextStates.add(s);
         }
-
-        rState.move(MoveDirection.RIGHT);
-        uState.move(MoveDirection.UP);
-        lState.move(MoveDirection.LEFT);
-        dState.move(MoveDirection.DOWN);
-
-        nextStates.add(rState);
-        nextStates.add(uState);
-        nextStates.add(lState);
-        nextStates.add(dState);
         
         return nextStates;
     }

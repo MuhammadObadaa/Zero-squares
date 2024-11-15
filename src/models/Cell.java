@@ -34,4 +34,9 @@ public abstract class Cell extends Positioned implements Blocker,Cloneable {
 
         return clone;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj) && this.color.equals(((Cell) obj).color);
+    }
 }

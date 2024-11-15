@@ -28,4 +28,9 @@ public class Square extends Node implements Movable {
         return this.x == moveDirection.getNewX(movable.getX()) &&
                 this.y == moveDirection.getNewY(movable.getY());
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Square && super.equals(obj);
+    }
 }

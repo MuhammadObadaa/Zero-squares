@@ -23,4 +23,9 @@ public class Goal extends Node{
     public boolean blocks(Movable movable, MoveDirection moveDirection) {
         return false;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Goal && super.equals(obj);
+    }
 }

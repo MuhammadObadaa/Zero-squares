@@ -79,4 +79,8 @@ public class Game {
     public void move(MoveDirection direction){
         this.state.move(direction);
     }
+
+    public State getState() {
+        return this.state;
+    }
 }
