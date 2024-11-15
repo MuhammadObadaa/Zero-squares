@@ -8,6 +8,7 @@ public class CellFactory {
     private static final char NODECHAR = '.';
     private static final char WALLCHAR = '#';
     private static final char BORDERCHAR = ' ';
+    private static final char TRAPCHAR = '@';
 
     public static Cell getCell(int x, int y, char inputChar) throws Exception {
         switch(inputChar){
@@ -15,6 +16,8 @@ public class CellFactory {
                 return new Wall(x,y);
             case CellFactory.BORDERCHAR:
                 return new Border(x,y);
+            case CellFactory.TRAPCHAR:
+                return new Trap(x,y);
             case CellFactory.NODECHAR:
                 return new Node(x,y);
             default:

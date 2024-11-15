@@ -57,6 +57,10 @@ public class CompositeCell extends Positioned implements Blocker, Cloneable {
         return false;
     }
 
+    public boolean squareInTrap(){
+        return this.square != null && this.cell instanceof Trap;
+    }
+
     @Override
     public String toString() {
 

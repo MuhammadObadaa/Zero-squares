@@ -7,13 +7,13 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) throws CloneNotSupportedException {
 
-        Game game = new Game("C:/lv3.zs");
+        Game game = new Game("C:/lv11.zs");
 
         GameController stateController = new GameController(game);
 
         FullSearchController f = new FullSearchController(game.getState());
         int i = 0;
-        ArrayList<State> s = f.DFSSearch();
+        ArrayList<State> s = f.BFSSearch();
         System.out.println(s.size());
 
         for (State state : s) {

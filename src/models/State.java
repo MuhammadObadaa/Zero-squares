@@ -14,6 +14,8 @@ public class State implements Cloneable {
     private ArrayList<Square> squares;
     private ArrayList<Goal> goals;
 
+    private boolean status = true;
+
     public State(CompositeCell[][] grid) {
         this.grid = grid;
         this.height = grid.length;
@@ -92,10 +94,19 @@ public class State implements Cloneable {
                     break;
                 }
 
+                if(grid[nx][ny].squareInTrap()){
+                    this.status = false;
+                    break;
+                }
+
                 nx = direction.getNewX(nx);
                 ny = direction.getNewY(ny);
             }
         }
+    }
+
+    public boolean getStatus(){
+        return this.status;
     }
 
     @Override
@@ -172,7 +183,7 @@ public class State implements Cloneable {
 
             s.move(moveDirection);
 
-            if (!this.equals(s))
+            if (!this.equals(s) && s.getStatus())
                 nextStates.add(s);
         }
         
