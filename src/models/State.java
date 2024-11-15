@@ -102,6 +102,9 @@ public class State implements Cloneable {
     public boolean equals(Object obj) {
         boolean equals;
 
+        if(((State)obj).squares.size() != this.squares.size() || ((State)obj).goals.size() != this.goals.size())
+            return false;
+
         for (Square square : this.squares) {
             equals = false;
             for (Square subSquare : ((State) obj).squares) {

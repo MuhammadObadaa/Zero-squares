@@ -2,14 +2,13 @@ package controllers;
 
 import constants.MoveDirection;
 import models.Game;
-import models.State;
 
 import java.io.IOException;
 
-public class StateController {
+public class GameController {
     public Game game;
 
-    public StateController(Game game) {
+    public GameController(Game game) {
         this.game = game;
     }
 
