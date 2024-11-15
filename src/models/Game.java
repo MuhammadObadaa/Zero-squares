@@ -13,22 +13,22 @@ public class Game {
     // make the file accepts the initial grid have a square in another goal
 
     public Game(String filePath){
-        int height = 0;
-        int width = 0;
+        int height = 0,width = 0,lineLength;
 
         try{
             // validate the file TODO: make it a function
             BufferedReader br = new BufferedReader(new FileReader(filePath));
 
             String line = br.readLine();
-            width = line.length();
+            lineLength = line.length();
+            width = lineLength/2;
             height = 1;
 
             while((line = br.readLine()) != null) {
                 height++;
 
-                if(width != line.length()) {
-                    throw new Exception("file Lines are not the same length");
+                if(lineLength != line.length()) {
+                    throw new Exception("file Lines are not the same length, line:" + height);
                 }
             }
 
@@ -43,6 +43,7 @@ public class Game {
 
     private void setGame(int height, int width, String filePath) {
         String line;
+        int lineLength;
         CompositeCell[][] cCells = new CompositeCell[height][width];
 
         try {
@@ -50,14 +51,23 @@ public class Game {
 
             int i = 0;
             while ((line = br.readLine()) != null) {
-                for (int j = 0; j < line.length(); j++) {
+                lineLength = line.length();
 
-                    char symbol = line.charAt(j);
+                for (int ch = 0,j = 0; ch < lineLength; ch+=2,++j) {
+
+                    char symbol = line.charAt(ch);
 
                     cCells[i][j] = new CompositeCell(CellFactory.getCell(i,j,symbol));
 
-                    if(Color.getColor(symbol) != null)
-                        cCells[i][j].setNode(NodeFactory.getNode(i,j,symbol));
+                    if(Color.getColor(symbol) != null) {
+                        cCells[i][j].setNode(NodeFactory.getNode(i, j, symbol));
+
+                        if(symbol == line.charAt(ch+1))
+                            continue;
+
+                        symbol = line.charAt(ch+1);
+                        cCells[i][j].setNode(NodeFactory.getNode(i, j, symbol));
+                    }
                 }
                 ++i;
             }

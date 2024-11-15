@@ -28,12 +28,12 @@ public class CompositeCell extends Positioned implements Blocker, Cloneable {
             this.goal = node;
     }
 
-    public Node getNode(){
-        if(this.square != null)
-            return this.square;
-        else if(this.goal != null)
-            return this.goal;
-        return null;
+    public Node getSquare(){
+        return this.square;
+    }
+
+    public Node getGoal(){
+        return this.goal;
     }
 
     public void dropSquare(){
