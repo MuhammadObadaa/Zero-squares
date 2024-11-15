@@ -48,6 +48,11 @@ public class CompositeCell extends Positioned implements Blocker, Cloneable {
         if(this.goal == null || this.square == null)
             return false;
 
+        if(this.goal.getColor() == Color.NOCOLOR){
+            ((Goal)this.goal).setColor(this.square.getColor());
+            return false;
+        }
+
         if(this.goal.getColor() == this.square.getColor()){
             dropGoal();
             dropSquare();
