@@ -71,7 +71,7 @@ public class State implements Cloneable {
     }
 
     public void move(MoveDirection direction){
-
+        boolean uncoloredGoalVisited;
         ArrayList<Square> squaresToMove = new ArrayList<>(this.squares.reversed());
 
         Iterator<Square> squareIterator = squaresToMove.iterator();
@@ -99,15 +99,33 @@ public class State implements Cloneable {
             nx = direction.getNewX(square.getX());
             ny = direction.getNewY(square.getY());
 
-
+            uncoloredGoalVisited = false;
             while(!this.blocked(nx,ny,square,direction)){
 
                 square.move(direction);
+
+                uncoloredGoalVisited = goalAt(nx,ny) != null && goalAt(nx,ny).getColor() == Color.NOCOLOR;
 
                 if(this.squareInGoal(nx,ny)){
                     squareIterator.remove();
                     this.goals.remove(this.goalAt(nx,ny));
                     break;
+                }else if(uncoloredGoalVisited){
+                    boolean squareGoalExist;
+                    for (Square sq : this.squares) {
+                        squareGoalExist = false;
+                        for (Goal goal : this.goals) {
+                            if(goal.getColor() == sq.getColor()){
+                                squareGoalExist = true;
+                                break;
+                            }
+                        }
+
+                        if(!squareGoalExist){
+                            this.status = false;
+                            return;
+                        }
+                    }
                 }
 
                 if(this.squareInTrap(nx,ny)){
