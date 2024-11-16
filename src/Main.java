@@ -75,7 +75,7 @@ public class Main {
         System.out.printf("\n\n" + Color.formColor(Color.GREEN, Color.BLACK) + "Total Bfs Time:" + Color.resetColorCode() + " %.6f sec",bfsTimes/1000000000.0);
         System.out.printf("\n\n" + Color.formColor(Color.GREEN, Color.BLACK) + "Total Dfs Time:" + Color.resetColorCode() + " %.6f sec",dfsTimes/1000000000.0);
 
-        System.out.printf("\n\n" + Color.formColor(Color.GREEN, Color.BLACK) + "Total Dfs Time:" + Color.resetColorCode() + " %.6f sec",(dfsTimes + bfsTimes)/1000000000.0);
+        System.out.printf("\n\n" + Color.formColor(Color.GREEN, Color.BLACK) + "Total Time:" + Color.resetColorCode() + " %.6f sec",(dfsTimes + bfsTimes)/1000000000.0);
     }
 
     public static void HumanPlay(){
