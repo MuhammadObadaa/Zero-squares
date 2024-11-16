@@ -2,6 +2,8 @@ package models;
 
 import behaviors.Positionable;
 
+import java.util.Objects;
+
 public abstract class Positioned implements Positionable {
     int x;
     int y;
@@ -29,6 +31,11 @@ public abstract class Positioned implements Positionable {
     @Override
     public void setY(int y) {
         this.y = y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 
     @Override

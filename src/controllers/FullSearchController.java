@@ -12,7 +12,7 @@ public class FullSearchController {
     }
 
     public ArrayList<State> DFSSearch() {
-        ArrayList<State> visited = new ArrayList<>();
+        Set<State> visited = new HashSet<>();
         ArrayList<State> path = new ArrayList<>();
 
         State emptyState = null, current;
@@ -57,7 +57,7 @@ public class FullSearchController {
     }
 
     public ArrayList<State> BFSSearch() {
-        ArrayList<State> visited = new ArrayList<>();
+        Set<State> visited = new HashSet<>();
         ArrayList<State> path = new ArrayList<>();
 
         State emptyState = null, current;
