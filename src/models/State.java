@@ -1,5 +1,6 @@
 package models;
 
+import constants.Color;
 import constants.MoveDirection;
 
 import java.util.ArrayList;
@@ -54,6 +55,7 @@ public class State implements Cloneable {
 
     public void move(MoveDirection direction){
         this.squares.sort(direction.getComparator());
+        boolean uncoloredGoalVisited;
 
         ArrayList<Square> squaresToMove = new ArrayList<>(this.squares.reversed());
 
@@ -82,6 +84,8 @@ public class State implements Cloneable {
             nx = direction.getNewX(square.getX());
             ny = direction.getNewY(square.getY());
 
+            uncoloredGoalVisited = false;
+
             while(! this.grid[nx][ny].blocks(square,direction)){
 
                 grid[square.getX()][square.getY()].dropSquare();
@@ -89,15 +93,30 @@ public class State implements Cloneable {
 
                 grid[nx][ny].setNode(square);
 
+                if(grid[nx][ny].getSquare() != null && grid[nx][ny].getSquare().getColor() == Color.NOCOLOR)
+                    uncoloredGoalVisited = true;
+
                 if(grid[nx][ny].squareInGoal()){
                     squareIterator.remove();
                     this.goals.remove(this.grid[nx][ny].getGoal());
                     break;
+                }else if(uncoloredGoalVisited){
+                    for (Square sq : this.squares) {
+                        this.status = false;
+                        for (Goal goal : this.goals) {
+                            if(goal.getColor() == sq.getColor()){
+                                this.status = true;
+                                break;
+                            }
+                        }
+                        if(!this.status)
+                            return;
+                    }
                 }
 
                 if(grid[nx][ny].squareInTrap()){
                     this.status = false;
-                    break;
+                    return;
                 }
 
                 nx = direction.getNewX(nx);
