@@ -24,7 +24,8 @@ public enum Color {
         this.index = index;
     }
 
-    public static String getNoColorCode(){
+    // TODO: rename method name
+    public static String resetColorCode(){
         return Color.base + "0" + Color.suffex;
     }
 

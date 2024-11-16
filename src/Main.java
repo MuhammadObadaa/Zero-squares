@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) throws CloneNotSupportedException {
 
-        Game game = new Game("./resources/levels/lv05.zs");
+        Game game = new Game("./resources/levels/lv20.zs");
 
         GameController stateController = new GameController(game);
 
@@ -24,16 +24,16 @@ public class Main {
             state.print();
         }
 
-        game.show();
-
         while(!game.finished()){
+
+            game.show();
+
             try {
                 stateController.control();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
 
-            game.show();
         }
 
         System.out.println("Winner");
