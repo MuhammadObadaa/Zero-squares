@@ -12,9 +12,8 @@ public class FullSearchController {
     }
 
     public ArrayList<State> DFSSearch() {
-        ArrayList<State> visited = new ArrayList<>(), path = new ArrayList<>();
-
-        HashMap<State, State> parent = new HashMap<>();
+        ArrayList<State> visited = new ArrayList<>();
+        ArrayList<State> path = new ArrayList<>();
 
         State emptyState = null, current;
 
@@ -36,7 +35,7 @@ public class FullSearchController {
                     visited.add(nextState);
                     stack.push(nextState);
 
-                    parent.put(nextState, current);
+                    nextState.setParent(current);
                 }
         }
 
@@ -45,11 +44,11 @@ public class FullSearchController {
         }
 
         path.add(emptyState);
-        current = emptyState;
+        current = emptyState.getParent();
 
-        while (parent.containsKey(current)) {
-            current = parent.get(current);
+        while (current!=null) {
             path.add(current);
+            current = current.getParent();
         }
 
         Collections.reverse(path);
@@ -58,9 +57,8 @@ public class FullSearchController {
     }
 
     public ArrayList<State> BFSSearch() {
-        ArrayList<State> visited = new ArrayList<>(), path = new ArrayList<>();
-
-        HashMap<State, State> parent = new HashMap<>();
+        ArrayList<State> visited = new ArrayList<>();
+        ArrayList<State> path = new ArrayList<>();
 
         State emptyState = null, current;
 
@@ -82,7 +80,7 @@ public class FullSearchController {
                     visited.add(nextState);
                     queue.add(nextState);
 
-                    parent.put(nextState, current);
+                    nextState.setParent(current);
                 }
         }
 
@@ -91,11 +89,11 @@ public class FullSearchController {
         }
 
         path.add(emptyState);
-        current = emptyState;
+        current = emptyState.getParent();
 
-        while (parent.containsKey(current)) {
-            current = parent.get(current);
+        while (current!=null) {
             path.add(current);
+            current = current.getParent();
         }
 
         Collections.reverse(path);
