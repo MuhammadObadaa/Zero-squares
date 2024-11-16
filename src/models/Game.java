@@ -126,7 +126,11 @@ public class Game {
     }
 
     public State getState() {
-        return this.currentState;
+        try {
+            return this.currentState.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public boolean finished(){

@@ -11,6 +11,8 @@ public class State implements Cloneable {
 
     private static Cell[][] grid;
 
+    private State parent;
+
     private ArrayList<Square> squares;
     private ArrayList<Goal> goals;
 
@@ -158,6 +160,14 @@ public class State implements Cloneable {
         }
 
         return null;
+    }
+
+    public void setParent(State parent){
+        this.parent = parent;
+    }
+
+    public State getParent(){
+        return this.parent;
     }
 
     @Override
