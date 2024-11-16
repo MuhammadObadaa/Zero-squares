@@ -7,14 +7,14 @@ import factories.NodeFactory;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.ArrayList;
 
 public class Game {
-    private State state;
-    private String filePath;
+    private State initState,currentState;
+    private Cell[][] grid;
     // make the file accepts the initial grid have a square in another goal
 
     public Game(String filePath){
-        this.filePath = filePath;
 
         int height = 0,width = 0,lineLength;
 
@@ -47,7 +47,12 @@ public class Game {
     private void setGame(int height, int width, String filePath) {
         String line;
         int lineLength;
-        CompositeCell[][] cCells = new CompositeCell[height][width];
+        this.grid = new Cell[height][width];
+
+        Node sampleNode;
+
+        ArrayList<Square> squares = new ArrayList<>();
+        ArrayList<Goal> goals = new ArrayList<>();
 
         try {
             BufferedReader br = new BufferedReader(new FileReader(filePath));
@@ -60,52 +65,71 @@ public class Game {
 
                     char symbol = line.charAt(ch);
 
-                    cCells[i][j] = new CompositeCell(CellFactory.getCell(i,j,symbol));
+                    grid[i][j] = CellFactory.getCell(i,j,symbol);
 
                     if(Color.getColor(symbol) != null) {
-                        cCells[i][j].setNode(NodeFactory.getNode(i, j, symbol));
+                        sampleNode = NodeFactory.getNode(i, j, symbol);
+
+                        if(sampleNode instanceof Goal) {
+                            goals.add((Goal) sampleNode);
+                        }else{
+                            squares.add((Square) sampleNode);
+                        }
 
                         if(symbol == line.charAt(ch+1))
                             continue;
 
                         symbol = line.charAt(ch+1);
-                        cCells[i][j].setNode(NodeFactory.getNode(i, j, symbol));
+
+                        sampleNode = NodeFactory.getNode(i, j, symbol);
+
+                        if(sampleNode instanceof Goal) {
+                            goals.add((Goal) sampleNode);
+                        }else{
+                            squares.add((Square) sampleNode);
+                        }
                     }
                 }
                 ++i;
             }
-
-            //TODO: assert that the square colors are the same of the goals colors
-
             br.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        this.state = new State(cCells);
+        this.initState = new State(this.grid,squares,goals);
+        try {
+            this.currentState = this.initState.clone();
+        }catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void show(){
-        this.state.print();
+        this.currentState.print();
     }
 
     public void move(MoveDirection direction){
-        this.state.move(direction);
+        this.currentState.move(direction);
 
-        if(!state.getStatus()){
+        if(!currentState.getStatus()){
             this.reset();
         }
     }
 
     public void reset(){
-        this.setGame(this.state.height,this.state.width,this.filePath);
+        try {
+            this.currentState = this.initState.clone();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public State getState() {
-        return this.state;
+        return this.currentState;
     }
 
     public boolean finished(){
-        return this.state.empty();
+        return this.currentState.empty();
     }
 }
