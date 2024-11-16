@@ -6,6 +6,7 @@ import constants.MoveDirection;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Objects;
 
 public class State implements Cloneable {
 
@@ -171,6 +172,14 @@ public class State implements Cloneable {
     }
 
     @Override
+    public int hashCode() {
+        int result = 17; // Start with a non-zero constant
+        result = 31 * result + Objects.hashCode(this.goals);
+        result = 31 * result + Objects.hashCode(this.squares);
+        return result;
+    }
+
+    @Override
     public boolean equals(Object obj) {
         boolean equals;
 
@@ -208,7 +217,7 @@ public class State implements Cloneable {
 
     @Override
     public State clone() throws CloneNotSupportedException {
-        State clone = new State();
+        State clone = (State)super.clone();
         clone.squares = new ArrayList<>();
         clone.goals = new ArrayList<>();
         clone.status = this.status;

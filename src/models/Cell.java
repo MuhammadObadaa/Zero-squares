@@ -3,6 +3,8 @@ package models;
 import behaviors.Blocker;
 import constants.Color;
 
+import java.util.Objects;
+
 public abstract class Cell extends Positioned implements Blocker,Cloneable {
     protected Color color;
     protected static String symbol = "   ";//'█';
@@ -33,6 +35,11 @@ public abstract class Cell extends Positioned implements Blocker,Cloneable {
         clone.y = this.y;
 
         return clone;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode() + Objects.hashCode(color);
     }
 
     @Override
