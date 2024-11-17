@@ -23,7 +23,7 @@ public class Main {
         if(in == 1){
             AIPlay();
         }else{
-            HumanPlay();
+            HumanPlay(1);
         }
     }
 
@@ -78,8 +78,7 @@ public class Main {
         System.out.printf("\n\n" + Color.formColor(Color.GREEN, Color.BLACK) + "Total Time:" + Color.resetColorCode() + " %.6f sec",(dfsTimes + bfsTimes)/1000000000.0);
     }
 
-    public static void HumanPlay(){
-        int i = 1;
+    public static void HumanPlay(int i){
         Game game = new Game("./resources/levels/lv" + String.format("%02d", i) + ".zs");
         GameController controller = new GameController(game);
 
@@ -98,7 +97,7 @@ public class Main {
         System.out.println("Winner");
 
         if(i != 20){
-            HumanPlay();
+            HumanPlay(++i);
         }
     }
 }
