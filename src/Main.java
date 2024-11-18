@@ -1,3 +1,4 @@
+import behaviors.Stateable;
 import constants.Color;
 import controllers.*;
 import models.*;
@@ -29,7 +30,8 @@ public class Main {
 
     public static void AIPlay(){
         Game game;
-        FullSearchController controller;
+        FullSearchController controller = new FullSearchController();
+        ArrayList<Stateable> path;
 
         long dfsTimes = 0,bfsTimes = 0;
 
@@ -43,12 +45,11 @@ public class Main {
             game.show();
 
             /// BFS:
-            controller = new FullSearchController(game.getState());
 
             System.out.println("\n\t\t" + Color.formColor(Color.RED, Color.BLACK) + " BFS Approach " + Color.resetColorCode());
 
             long start = System.nanoTime();
-            ArrayList<State> path = controller.BFSSearch();
+            path = controller.BFSSearch(game.getState());
             long end = System.nanoTime();
 
             bfsTimes += (end - start);
@@ -57,12 +58,11 @@ public class Main {
             System.out.println("Shortest found path long:" + path.size());
 
             /// DFS:
-            controller = new FullSearchController(game.getState());
 
             System.out.println("\n\t\t" + Color.formColor(Color.RED, Color.BLACK) + " DFS Approach " + Color.resetColorCode());
 
             start = System.nanoTime();
-            path = controller.DFSSearch();
+            path = controller.DFSSearch(game.getState());
             end = System.nanoTime();
 
             dfsTimes += (end - start);

@@ -134,6 +134,6 @@ public class Game {
     }
 
     public boolean finished(){
-        return this.currentState.empty();
+        return this.currentState.finishState();
     }
 }

@@ -1,36 +1,31 @@
 package controllers;
 
-import models.State;
+import behaviors.Stateable;
 
 import java.util.*;
 
 public class FullSearchController {
-    State state;
 
-    public FullSearchController(State state) {
-        this.state = state;
-    }
+    public ArrayList<Stateable> DFSSearch(Stateable state) {
+        Set<Stateable> visited = new HashSet<>();
+        ArrayList<Stateable> path = new ArrayList<>();
 
-    public ArrayList<State> DFSSearch() {
-        Set<State> visited = new HashSet<>();
-        ArrayList<State> path = new ArrayList<>();
+        Stateable emptyState = null, current;
 
-        State emptyState = null, current;
+        Stack<Stateable> stack = new Stack<>();
 
-        Stack<State> stack = new Stack<>();
-
-        stack.push(this.state);
-        visited.add(this.state);
+        stack.push(state);
+        visited.add(state);
 
         while (!stack.isEmpty()) {
             current = stack.pop();
 
-            if (current.empty()) {
+            if (current.finishState()) {
                 emptyState = current;
                 break;
             }
 
-            for (State nextState : current.nextStates())
+            for (Stateable nextState : current.nextStates())
                 if (!visited.contains(nextState)) {
                     visited.add(nextState);
                     stack.push(nextState);
@@ -56,26 +51,26 @@ public class FullSearchController {
         return path;
     }
 
-    public ArrayList<State> BFSSearch() {
-        Set<State> visited = new HashSet<>();
-        ArrayList<State> path = new ArrayList<>();
+    public ArrayList<Stateable> BFSSearch(Stateable state) {
+        Set<Stateable> visited = new HashSet<>();
+        ArrayList<Stateable> path = new ArrayList<>();
 
-        State emptyState = null, current;
+        Stateable emptyState = null, current;
 
-        Queue<State> queue = new ArrayDeque<>();
+        Queue<Stateable> queue = new ArrayDeque<>();
 
-        queue.add(this.state);
-        visited.add(this.state);
+        queue.add(state);
+        visited.add(state);
 
         while (!queue.isEmpty()) {
             current = queue.poll();
 
-            if (current.empty()) {
+            if (current.finishState()) {
                 emptyState = current;
                 break;
             }
 
-            for (State nextState : current.nextStates())
+            for (Stateable nextState : current.nextStates())
                 if (!visited.contains(nextState)) {
                     visited.add(nextState);
                     queue.add(nextState);
