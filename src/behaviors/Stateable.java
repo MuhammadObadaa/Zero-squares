@@ -3,11 +3,11 @@ package behaviors;
 import java.util.ArrayList;
 
 public interface Stateable {
-    public ArrayList<Stateable> nextStates();
+    ArrayList<Stateable> nextStates();
 
-    public boolean finishState();
+    boolean finishState();
 
-    public Stateable getParent();
+    Stateable getParent();
 
-    public void setParent(Stateable parent);
+    void setParent(Stateable parent);
 }

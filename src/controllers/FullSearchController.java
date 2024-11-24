@@ -8,9 +8,8 @@ public class FullSearchController {
 
     public ArrayList<Stateable> DFSSearch(Stateable state) {
         Set<Stateable> visited = new HashSet<>();
-        ArrayList<Stateable> path = new ArrayList<>();
 
-        Stateable emptyState = null, current;
+        Stateable finiteState = null, current;
 
         Stack<Stateable> stack = new Stack<>();
 
@@ -21,7 +20,7 @@ public class FullSearchController {
             current = stack.pop();
 
             if (current.finishState()) {
-                emptyState = current;
+                finiteState = current;
                 break;
             }
 
@@ -34,28 +33,13 @@ public class FullSearchController {
                 }
         }
 
-        if (emptyState == null) {
-            return path;
-        }
-
-        path.add(emptyState);
-        current = emptyState.getParent();
-
-        while (current!=null) {
-            path.add(current);
-            current = current.getParent();
-        }
-
-        Collections.reverse(path);
-
-        return path;
+        return getPath(finiteState);
     }
 
     public ArrayList<Stateable> BFSSearch(Stateable state) {
         Set<Stateable> visited = new HashSet<>();
-        ArrayList<Stateable> path = new ArrayList<>();
 
-        Stateable emptyState = null, current;
+        Stateable finiteState = null, current;
 
         Queue<Stateable> queue = new ArrayDeque<>();
 
@@ -66,7 +50,7 @@ public class FullSearchController {
             current = queue.poll();
 
             if (current.finishState()) {
-                emptyState = current;
+                finiteState = current;
                 break;
             }
 
@@ -79,12 +63,19 @@ public class FullSearchController {
                 }
         }
 
-        if (emptyState == null) {
-            return path;
-        }
+        return getPath(finiteState);
+    }
 
-        path.add(emptyState);
-        current = emptyState.getParent();
+    private ArrayList<Stateable> getPath(Stateable state){
+        ArrayList<Stateable> path = new ArrayList<>();
+
+        if(state == null)
+            return path;
+
+        path.add(state);
+
+        Stateable current = state.getParent();
+
 
         while (current!=null) {
             path.add(current);
