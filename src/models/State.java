@@ -73,6 +73,7 @@ public class State implements Cloneable, Stateable {
 
     public void move(MoveDirection direction){
         boolean uncoloredGoalVisited;
+        this.squares.sort(direction.getComparator());
         ArrayList<Square> squaresToMove = new ArrayList<>(this.squares.reversed());
 
         Iterator<Square> squareIterator = squaresToMove.iterator();

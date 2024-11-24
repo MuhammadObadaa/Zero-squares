@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws CloneNotSupportedException, IOException {
+
         chooseAndPick();
     }
 
@@ -63,6 +64,19 @@ public class Main {
 
             start = System.nanoTime();
             path = controller.DFSSearch(game.getState());
+            end = System.nanoTime();
+
+            dfsTimes += (end - start);
+
+            System.out.printf("Execution Time:%.6f sec\n",(end - start)/1000000000.0);
+            System.out.println("Found path long:" + path.size());
+
+            /// DFS recursive:
+
+            System.out.println("\n\t\t" + Color.formColor(Color.RED, Color.BLACK) + " DFS Recursive Approach " + Color.resetColorCode());
+
+            start = System.nanoTime();
+            path = controller.DFSRecursiveSearch(game.getState());
             end = System.nanoTime();
 
             dfsTimes += (end - start);

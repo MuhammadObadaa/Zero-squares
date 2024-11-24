@@ -1,6 +1,7 @@
 package controllers;
 
 import behaviors.Stateable;
+import models.State;
 
 import java.util.*;
 
@@ -34,6 +35,35 @@ public class FullSearchController {
         }
 
         return getPath(finiteState);
+    }
+
+    public ArrayList<Stateable> DFSRecursiveSearch(Stateable state){
+        Set<Stateable> visited = new HashSet<>();
+        visited.add(state);
+
+        Stateable stateable = DFSRecursiveSearch(state,visited);
+
+        return getPath(stateable);
+    }
+
+    private Stateable DFSRecursiveSearch(Stateable state,Set<Stateable> visited){
+        if(state.finishState())
+            return state;
+
+        Stateable res = null;
+
+        for (Stateable nextState : state.nextStates()) {
+            if(visited.contains(nextState))
+                continue;
+
+            visited.add(nextState);
+            nextState.setParent(state);
+
+            if((res = DFSRecursiveSearch(nextState,visited)) != null)
+                return res;
+        }
+
+        return res;
     }
 
     public ArrayList<Stateable> BFSSearch(Stateable state) {
