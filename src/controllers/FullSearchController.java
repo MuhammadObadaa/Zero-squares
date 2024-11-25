@@ -74,24 +74,36 @@ public class FullSearchController {
         Queue<Stateable> queue = new ArrayDeque<>();
 
         queue.add(state);
-        visited.add(state);
+        //visited.add(state);
 
         while (!queue.isEmpty()) {
             current = queue.poll();
+
+            if(visited.contains(current))
+                continue;
+
+            visited.add(current);
 
             if (current.finishState()) {
                 finiteState = current;
                 break;
             }
 
-            for (Stateable nextState : current.nextStates())
+            for (Stateable nextState : current.nextStates()) {
                 if (!visited.contains(nextState)) {
-                    visited.add(nextState);
                     queue.add(nextState);
 
                     nextState.setParent(current);
                 }
+                if (nextState.finishState()){
+                    System.out.println(visited.size());
+
+                    return getPath(nextState);
+                }
+            }
         }
+
+        System.out.println(visited.size());
 
         return getPath(finiteState);
     }

@@ -75,11 +75,4 @@ public enum Color {
         return "";
     }
 
-//
-//    public String toString(){
-//        return this.toString(false);
-//    }
-//    public String toString(boolean background) {
-//        return  this.index + (background ? '3':'4');
-//    }
 }

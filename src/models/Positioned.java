@@ -35,7 +35,7 @@ public abstract class Positioned implements Positionable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(x, y);
+        return Objects.hash(this.x, this.y);
     }
 
     @Override

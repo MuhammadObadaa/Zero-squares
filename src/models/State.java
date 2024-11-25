@@ -197,11 +197,25 @@ public class State implements Cloneable, Stateable {
         return this.parent;
     }
 
+    private int goalsHashCode(){
+        int result = 17;
+        for (Goal goal : this.goals)
+            result += goal.hashCode();
+        return result;
+    }
+
+    private int squaresHashCode(){
+        int result = 17;
+        for (Square square : this.squares)
+            result += square.hashCode();
+        return result;
+    }
+
     @Override
     public int hashCode() {
         int result = 17; // Start with a non-zero constant
-        result = 31 * result + Objects.hashCode(this.goals);
-        result = 31 * result + Objects.hashCode(this.squares);
+        result += 31 * this.goalsHashCode();
+        result += 31 * this.squaresHashCode();
         return result;
     }
 

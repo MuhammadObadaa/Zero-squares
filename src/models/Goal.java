@@ -25,6 +25,11 @@ public class Goal extends Node{
     }
 
     @Override
+    public int hashCode() {
+        return this.color.hashCode();
+    }
+
+    @Override
     public boolean equals(Object obj) {
         return obj instanceof Goal && super.equals(obj);
     }
