@@ -96,8 +96,6 @@ public class FullSearchController {
                     nextState.setParent(current);
                 }
                 if (nextState.finishState()){
-                    System.out.println(visited.size());
-
                     return getPath(nextState);
                 }
             }

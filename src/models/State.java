@@ -200,14 +200,14 @@ public class State implements Cloneable, Stateable {
     private int goalsHashCode(){
         int result = 17;
         for (Goal goal : this.goals)
-            result += goal.hashCode();
+            result ^= goal.hashCode();
         return result;
     }
 
     private int squaresHashCode(){
         int result = 17;
         for (Square square : this.squares)
-            result += square.hashCode();
+            result ^= square.hashCode();
         return result;
     }
 
@@ -221,38 +221,11 @@ public class State implements Cloneable, Stateable {
 
     @Override
     public boolean equals(Object obj) {
-        boolean equals;
-
         if(((State)obj).squares.size() != this.squares.size() || ((State)obj).goals.size() != this.goals.size())
             return false;
 
-        for (Square square : this.squares) {
-            equals = false;
-            for (Square subSquare : ((State) obj).squares) {
-                if(square.equals(subSquare)){
-                    equals = true;
-                    break;
-                }
-            }
-
-            if(!equals)
-                return false;
-        }
-
-        for (Goal goal : this.goals) {
-            equals = false;
-            for (Goal subGoal : ((State) obj).goals) {
-                if(goal.equals(subGoal)){
-                    equals = true;
-                    break;
-                }
-            }
-
-            if(!equals)
-                return false;
-        }
-
-        return true;
+        return this.squares.containsAll(((State) obj).squares) &&
+                this.goals.containsAll(((State)obj).goals);
     }
 
     @Override
