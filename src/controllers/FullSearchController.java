@@ -1,11 +1,48 @@
 package controllers;
 
 import behaviors.Stateable;
-import models.State;
 
 import java.util.*;
 
 public class FullSearchController {
+
+    public ArrayList<Stateable> UCSearch(Stateable state){
+        Set<Stateable> visited = new HashSet<>();
+
+        Stateable finiteState = null, current;
+
+        PriorityQueue<Stateable> priorityQueue = new PriorityQueue<>(
+                (o1, o2) -> Integer.compare(o1.getCost(), o2.getCost())
+        );
+
+        priorityQueue.add(state);
+        visited.add(state);
+
+        while (!priorityQueue.isEmpty()) {
+            current = priorityQueue.poll();
+
+            visited.add(current);
+
+            if (current.finishState()) {
+                finiteState = current;
+                break;
+            }
+
+            for (Stateable nextState : current.nextStates()) {
+                if (!visited.contains(nextState)) {
+                    priorityQueue.add(nextState);
+                    visited.add(nextState);
+
+                    nextState.setParent(current);
+                }
+                if (nextState.finishState()){
+                    return getPath(nextState);
+                }
+            }
+        }
+
+        return getPath(finiteState);
+    }
 
     public ArrayList<Stateable> DFSSearch(Stateable state) {
         Set<Stateable> visited = new HashSet<>();
@@ -100,8 +137,6 @@ public class FullSearchController {
                 }
             }
         }
-
-        System.out.println(visited.size());
 
         return getPath(finiteState);
     }

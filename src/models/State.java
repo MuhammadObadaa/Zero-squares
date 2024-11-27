@@ -19,12 +19,14 @@ public class State implements Cloneable, Stateable {
     private ArrayList<Goal> goals;
 
     private boolean status;
+    private int cost;
 
     public State(Cell[][] grid,ArrayList<Square> squares, ArrayList<Goal> goals) {
         State.grid = grid;
         this.squares = squares;
         this.goals = goals;
         this.status = true;
+        this.cost = 1;
     }
 
     private State(){}
@@ -72,6 +74,8 @@ public class State implements Cloneable, Stateable {
     }
 
     public void move(MoveDirection direction){
+        this.costIncrease(1);
+
         boolean uncoloredGoalVisited;
         this.squares.sort(direction.getComparator());
         ArrayList<Square> squaresToMove = new ArrayList<>(this.squares.reversed());
@@ -193,6 +197,21 @@ public class State implements Cloneable, Stateable {
         this.parent = (State) parent;
     }
 
+    @Override
+    public int getCost() {
+        return this.cost;
+    }
+
+    @Override
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
+
+    @Override
+    public void costIncrease(int increment) {
+        this.cost += increment;
+    }
+
     public State getParent(){
         return this.parent;
     }
@@ -234,6 +253,7 @@ public class State implements Cloneable, Stateable {
         clone.squares = new ArrayList<>();
         clone.goals = new ArrayList<>();
         clone.status = this.status;
+        clone.cost = this.cost;
 
         for (Square square : this.squares)
             clone.squares.add((Square)square.clone());

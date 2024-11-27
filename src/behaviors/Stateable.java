@@ -10,4 +10,10 @@ public interface Stateable {
     Stateable getParent();
 
     void setParent(Stateable parent);
+
+    int getCost();
+
+    void setCost(int cost);
+
+    void costIncrease(int increment);
 }
