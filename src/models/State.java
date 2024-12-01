@@ -144,7 +144,7 @@ public class State implements Cloneable, Stateable {
                 }
 
             if (!squareGoalExist) {
-                return false;
+                return true;
             }
         }
 

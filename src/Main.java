@@ -34,7 +34,7 @@ public class Main {
         FullSearchController controller = new FullSearchController();
         ArrayList<Stateable> path;
 
-        long dfsTimes = 0,bfsTimes = 0,dfsRecTimes = 0,ucsTime = 0;
+        long dfsTimes = 0,bfsTimes = 0,dfsRecTimes = 0,ucsTime = 0, aStarTime = 0;
 
         for (int i = 1; i <= 20; i++) {
 
@@ -96,6 +96,19 @@ public class Main {
 
             System.out.printf("Execution Time:%.6f sec\n",(end - start)/1000000000.0);
             System.out.println("Found path long:" + path.size());
+
+            /// UCS:
+
+            System.out.println("\n\t\t" + Color.formColor(Color.RED, Color.BLACK) + " A* Approach " + Color.resetColorCode());
+
+            start = System.nanoTime();
+            path = controller.AStarSearch(game.getState());
+            end = System.nanoTime();
+
+            aStarTime += (end - start);
+
+            System.out.printf("Execution Time:%.6f sec\n",(end - start)/1000000000.0);
+            System.out.println("Found path long:" + path.size());
         }
         System.out.println("\n\t\t" + Color.formColor(Color.BLUE, Color.BLACK) + "*** Results ***" + Color.resetColorCode());
 
@@ -103,8 +116,9 @@ public class Main {
         System.out.printf("\n\n" + Color.formColor(Color.GREEN, Color.BLACK) + "Total Dfs Time:" + Color.resetColorCode() + " %.6f sec",dfsTimes/1000000000.0);
         System.out.printf("\n\n" + Color.formColor(Color.GREEN, Color.BLACK) + "Total DfsRec Time:" + Color.resetColorCode() + " %.6f sec",dfsRecTimes/1000000000.0);
         System.out.printf("\n\n" + Color.formColor(Color.GREEN, Color.BLACK) + "Total UCS Time:" + Color.resetColorCode() + " %.6f sec",ucsTime/1000000000.0);
+        System.out.printf("\n\n" + Color.formColor(Color.GREEN, Color.BLACK) + "Total A* Time:" + Color.resetColorCode() + " %.6f sec",aStarTime/1000000000.0);
 
-        System.out.printf("\n\n" + Color.formColor(Color.GREEN, Color.BLACK) + "Total Time:" + Color.resetColorCode() + " %.6f sec",(dfsTimes + bfsTimes + dfsRecTimes + ucsTime)/1000000000.0);
+        System.out.printf("\n\n" + Color.formColor(Color.GREEN, Color.BLACK) + "Total Time:" + Color.resetColorCode() + " %.6f sec",(dfsTimes + bfsTimes + dfsRecTimes + ucsTime + aStarTime)/1000000000.0);
     }
 
     public static void HumanPlay(int i){
