@@ -203,6 +203,19 @@ public class State implements Cloneable, Stateable {
     }
 
     @Override
+    public int getHeuristic(){
+        int heuristic = 0;
+        for (Square square : this.squares) {
+            for (Goal goal : this.goals) {
+                if(goal.getColor() == square.getColor())
+                    heuristic += Math.abs(goal.x - square.x) + Math.abs(goal.y - square.y);
+            }
+        }
+
+        return heuristic;
+    }
+
+    @Override
     public void setCost(int cost) {
         this.cost = cost;
     }

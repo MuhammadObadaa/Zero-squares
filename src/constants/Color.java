@@ -16,8 +16,8 @@ public enum Color {
     private final int index;
     private final char symbol;
 
-    static final String base = "\u001B[";
-    static final String suffex = "m";
+    private static final String base = "\u001B[";
+    private static final String suffex = "m";
 
     Color(char symbol,int index){
         this.symbol = symbol;

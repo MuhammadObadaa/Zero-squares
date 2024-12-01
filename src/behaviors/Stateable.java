@@ -16,4 +16,6 @@ public interface Stateable {
     void setCost(int cost);
 
     void costIncrease(int increment);
+
+    int getHeuristic();
 }
