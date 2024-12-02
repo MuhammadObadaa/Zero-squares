@@ -25,7 +25,7 @@ public class Main {
         if(in == 1){
             AIPlay();
         }else{
-            HumanPlay(1);
+            HumanPlay(0);
         }
     }
 
@@ -34,9 +34,9 @@ public class Main {
         FullSearchController controller = new FullSearchController();
         ArrayList<Stateable> path;
 
-        long dfsTimes = 0,bfsTimes = 0,dfsRecTimes = 0,ucsTime = 0, aStarTime = 0;
+        long dfsTimes = 0,bfsTimes = 0,dfsRecTimes = 0,ucsTime = 0, aStarTime = 0,hillClimbingTime = 0;
 
-        for (int i = 1; i <= 20; i++) {
+        for (int i = 0; i <= 20; i++) {
 
             String filepath = "./resources/levels/lv" + String.format("%02d", i) + ".zs";
 
@@ -97,7 +97,7 @@ public class Main {
             System.out.printf("Execution Time:%.6f sec\n",(end - start)/1000000000.0);
             System.out.println("Found path long:" + path.size());
 
-            /// UCS:
+            /// A*:
 
             System.out.println("\n\t\t" + Color.formColor(Color.RED, Color.BLACK) + " A* Approach " + Color.resetColorCode());
 
@@ -109,6 +109,19 @@ public class Main {
 
             System.out.printf("Execution Time:%.6f sec\n",(end - start)/1000000000.0);
             System.out.println("Found path long:" + path.size());
+
+            /// Hill climbing:
+
+            System.out.println("\n\t\t" + Color.formColor(Color.RED, Color.BLACK) + " Hill Climbing Approach " + Color.resetColorCode());
+
+            start = System.nanoTime();
+            path = controller.HillClimbingSearch(game.getState());
+            end = System.nanoTime();
+
+            hillClimbingTime += (end - start);
+
+            System.out.printf("Execution Time:%.6f sec\n",(end - start)/1000000000.0);
+            System.out.println("Found path long:" + path.size());
         }
         System.out.println("\n\t\t" + Color.formColor(Color.BLUE, Color.BLACK) + "*** Results ***" + Color.resetColorCode());
 
@@ -117,8 +130,9 @@ public class Main {
         System.out.printf("\n\n" + Color.formColor(Color.GREEN, Color.BLACK) + "Total DfsRec Time:" + Color.resetColorCode() + " %.6f sec",dfsRecTimes/1000000000.0);
         System.out.printf("\n\n" + Color.formColor(Color.GREEN, Color.BLACK) + "Total UCS Time:" + Color.resetColorCode() + " %.6f sec",ucsTime/1000000000.0);
         System.out.printf("\n\n" + Color.formColor(Color.GREEN, Color.BLACK) + "Total A* Time:" + Color.resetColorCode() + " %.6f sec",aStarTime/1000000000.0);
+        System.out.printf("\n\n" + Color.formColor(Color.GREEN, Color.BLACK) + "Total Hill Climbing Time:" + Color.resetColorCode() + " %.6f sec",hillClimbingTime/1000000000.0);
 
-        System.out.printf("\n\n" + Color.formColor(Color.GREEN, Color.BLACK) + "Total Time:" + Color.resetColorCode() + " %.6f sec",(dfsTimes + bfsTimes + dfsRecTimes + ucsTime + aStarTime)/1000000000.0);
+        System.out.printf("\n\n" + Color.formColor(Color.GREEN, Color.BLACK) + "Total Time:" + Color.resetColorCode() + " %.6f sec",(dfsTimes + bfsTimes + dfsRecTimes + ucsTime + aStarTime + hillClimbingTime)/1000000000.0);
     }
 
     public static void HumanPlay(int i){

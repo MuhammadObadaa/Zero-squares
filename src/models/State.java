@@ -247,7 +247,9 @@ public class State implements Cloneable, Stateable {
     public int hashCode() {
         int result = 17; // Start with a non-zero constant
         result += 31 * this.goalsHashCode();
+        //result += 31 * this.goals.hashCode();
         result += 31 * this.squaresHashCode();
+        //result += 31 * this.squares.hashCode();
         return result;
     }
 

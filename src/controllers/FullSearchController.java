@@ -6,6 +6,33 @@ import java.util.*;
 
 public class FullSearchController {
 
+    public ArrayList<Stateable> HillClimbingSearch(Stateable state){
+        Stateable finiteState = null, current = state,nearestNeighbor;
+
+        ArrayList<Stateable> nextStates;
+
+        while(finiteState == null){
+            nextStates = current.nextStates();
+            nextStates.sort((o1,o2) -> Integer.compare(o1.getHeuristic(),o2.getHeuristic()));
+
+            try {
+                nearestNeighbor = nextStates.getFirst();
+            }catch (NoSuchElementException e){
+                finiteState = current;
+                break;
+            }
+
+            nearestNeighbor.setParent(current);
+
+            if(nearestNeighbor.getHeuristic() < current.getHeuristic())
+                current = nearestNeighbor;
+            else
+                finiteState = current;
+        }
+
+        return getPath(finiteState);
+    }
+
     public ArrayList<Stateable> AStarSearch(Stateable state){
         Set<Stateable> visited = new HashSet<>();
 
@@ -16,10 +43,14 @@ public class FullSearchController {
         );
 
         priorityQueue.add(state);
-        visited.add(state);
 
         while (!priorityQueue.isEmpty()) {
             current = priorityQueue.poll();
+
+            if(visited.contains(current))
+                continue;
+            else
+                visited.add(current);
 
             visited.add(current);
 
@@ -29,20 +60,11 @@ public class FullSearchController {
             }
 
             for (Stateable nextState : current.nextStates()) {
-                if (!visited.contains(nextState)) {
                     priorityQueue.add(nextState);
-                    visited.add(nextState);
 
                     nextState.setParent(current);
-                }
-                if (nextState.finishState()){
-
-                    System.out.println(visited.size());
-                    return getPath(nextState);
-                }
             }
         }
-
 
         return getPath(finiteState);
     }
