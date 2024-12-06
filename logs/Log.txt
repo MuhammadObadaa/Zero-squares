@@ -1,0 +1,206 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Level: 10
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+<<<<< Solved By : Breadth First Search >>>>>
+
+Visited set size = 297
+Path length = 45
+Execution time = 0.023755 Sec
+Execution memory = 93.06 KB
+
+
+<<<<< Solved By : Iterative Depth First Search >>>>>
+
+Visited set size = 232
+Path length = 73
+Execution time = 0.014742 Sec
+Execution memory = 72.72 KB
+
+
+<<<<< Solved By : Recursive Depth First Search >>>>>
+
+Visited set size = 245
+Path length = 112
+Execution time = 0.012358 Sec
+Execution memory = 76.44 KB
+
+
+<<<<< Solved By : Uniform Cost Search >>>>>
+
+Visited set size = 299
+Path length = 45
+Execution time = 0.020066 Sec
+Execution memory = 11.67 KB
+
+
+<<<<< Solved By : A Star Search >>>>>
+
+Visited set size = 295
+Path length = 47
+Execution time = 0.016418 Sec
+Execution memory = 92.30 KB
+
+
+<<<<< Solved By : Advanced A Star Search >>>>>
+
+Visited set size = 289
+Path length = 60
+Execution time = 0.017345 Sec
+Execution memory = 90.42 KB
+
+
+<<<<< No Solution Found By : Steepest Hill Climb Search >>>>>
+
+Visited set size = 0
+Path length = 5
+Execution time = 0.007202 Sec
+Execution memory = 1.13 KB
+
+
+<<<<< No Solution Found By : Simple Hill Climb Search >>>>>
+
+Visited set size = 5
+Path length = 5
+Execution time = 0.008608 Sec
+Execution memory = 1.42 KB
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Level: 20
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+<<<<< Solved By : Breadth First Search >>>>>
+
+Visited set size = 2599
+Path length = 14
+Execution time = 0.053978 Sec
+Execution memory = 1113.27 KB
+
+
+<<<<< Solved By : Iterative Depth First Search >>>>>
+
+Visited set size = 328
+Path length = 90
+Execution time = 0.014599 Sec
+Execution memory = 126.28 KB
+
+
+<<<<< Solved By : Recursive Depth First Search >>>>>
+
+Visited set size = 30
+Path length = 25
+Execution time = 0.010272 Sec
+Execution memory = 10.64 KB
+
+
+<<<<< Solved By : Uniform Cost Search >>>>>
+
+Visited set size = 2329
+Path length = 15
+Execution time = 0.038299 Sec
+Execution memory = 4.73 KB
+
+
+<<<<< Solved By : A Star Search >>>>>
+
+Visited set size = 250
+Path length = 15
+Execution time = 0.013579 Sec
+Execution memory = 104.58 KB
+
+
+<<<<< Solved By : Advanced A Star Search >>>>>
+
+Visited set size = 100
+Path length = 16
+Execution time = 0.007507 Sec
+Execution memory = 34.63 KB
+
+
+<<<<< No Solution Found By : Steepest Hill Climb Search >>>>>
+
+Visited set size = 0
+Path length = 3
+Execution time = 0.006744 Sec
+Execution memory = 0.75 KB
+
+
+<<<<< No Solution Found By : Simple Hill Climb Search >>>>>
+
+Visited set size = 4
+Path length = 4
+Execution time = 0.006831 Sec
+Execution memory = 1.44 KB
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Level: 30
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+<<<<< Solved By : Breadth First Search >>>>>
+
+Visited set size = 283349
+Path length = 23
+Execution time = 11.396741 Sec
+Execution memory = 129565.17 KB
+
+
+<<<<< Solved By : Iterative Depth First Search >>>>>
+
+Visited set size = 560506
+Path length = 258
+Execution time = 53.388148 Sec
+Execution memory = 259295.79 KB
+
+
+<<<<< Solved By : Recursive Depth First Search >>>>>
+
+Visited set size = 556971
+Path length = 229
+Execution time = 57.119425 Sec
+Execution memory = 257840.22 KB
+
+
+<<<<< Solved By : Uniform Cost Search >>>>>
+
+Visited set size = 204803
+Path length = 24
+Execution time = 5.686466 Sec
+Execution memory = 8.06 KB
+
+
+<<<<< Solved By : A Star Search >>>>>
+
+Visited set size = 39718
+Path length = 24
+Execution time = 1.312532 Sec
+Execution memory = 16920.38 KB
+
+
+<<<<< Solved By : Advanced A Star Search >>>>>
+
+Visited set size = 840
+Path length = 43
+Execution time = 0.021377 Sec
+Execution memory = 306.95 KB
+
+
+<<<<< No Solution Found By : Steepest Hill Climb Search >>>>>
+
+Visited set size = 0
+Path length = 5
+Execution time = 0.008222 Sec
+Execution memory = 1.69 KB
+
+
+<<<<< No Solution Found By : Simple Hill Climb Search >>>>>
+
+Visited set size = 4
+Path length = 4
+Execution time = 0.008282 Sec
+Execution memory = 1.53 KB

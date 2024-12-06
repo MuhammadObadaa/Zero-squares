@@ -7,7 +7,10 @@
     <list default="true" id="493ddc36-b5f7-4c80-a549-a2762a31dc4c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/FullSearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/FullSearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/behaviors/Movable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/behaviors/Movable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/behaviors/Stateable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/behaviors/Stateable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/Color.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/FullSearchController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/State.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +53,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Documents/collage/forthYear/IntellSearchAlgo/zero-squares",
+    "last_opened_file_path": "D:/Documents/collage/forthYear/IntellSearchAlgo/zero-squares/logs",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -65,10 +68,18 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Documents\collage\forthYear\IntellSearchAlgo\zero-squares\logs" />
+      <recent name="D:\Documents\collage\forthYear\IntellSearchAlgo\zero-squares\src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\collage\forthYear\IntellSearchAlgo\zero-squares\logs" />
+      <recent name="D:\Documents\collage\forthYear\IntellSearchAlgo\zero-squares\resources" />
+      <recent name="D:\Documents\collage\forthYear\IntellSearchAlgo\zero-squares\src\Logs" />
       <recent name="D:\Documents\IntellSearchAlgo\zero-squares\src\behaviors" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controllers" />
       <recent name="models" />
     </key>
   </component>
@@ -131,22 +142,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>123</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>117</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/zero_squares$Main.ic" NAME="Main Coverage Results" MODIFIED="1731075874623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />

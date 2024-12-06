@@ -4,6 +4,6 @@ import constants.MoveDirection;
 
 public interface Movable extends Positionable {
 
-    public void move(MoveDirection moveDirection);
+    void move(MoveDirection moveDirection);
 
 }

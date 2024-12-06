@@ -65,7 +65,7 @@ public class State implements Cloneable, Stateable {
             symbol = State.grid[x][y].getSymbol();
         }
 
-        return Color.formColor(fg,bg) + symbol + Color.resetColorCode();
+        return Color.formColorString(fg,bg,  symbol);
     }
 
     public boolean finishState(){
@@ -74,7 +74,6 @@ public class State implements Cloneable, Stateable {
     }
 
     public void move(MoveDirection direction){
-        this.costIncrease(1);
 
         boolean uncoloredGoalVisited;
         this.squares.sort(direction.getComparator());
@@ -106,20 +105,22 @@ public class State implements Cloneable, Stateable {
             ny = direction.getNewY(square.getY());
 
             while(!this.blocked(nx,ny,square,direction)){
+                this.costIncrease(1);
 
                 square.move(direction);
 
                 uncoloredGoalVisited = goalAt(nx,ny) != null && goalAt(nx,ny).getColor() == Color.NOCOLOR;
 
-                if(this.squareInGoal(nx,ny)){
+                if(this.squareInGoal(nx,ny)) {
                     squareIterator.remove();
-                    this.goals.remove(this.goalAt(nx,ny));
+                    this.goals.remove(this.goalAt(nx, ny));
                     break;
-                }else if(uncoloredGoalVisited)
-                    if(!this.eachSquareHasGoal()){
-                        this.status = false;
-                        return;
-                    }
+                }
+//                else if(uncoloredGoalVisited)
+//                    if(!this.eachSquareHasGoal()){
+//                        this.status = false;
+//                        return;
+//                    }
 
                 if(this.squareInTrap(nx,ny)){
                     this.status = false;
@@ -132,8 +133,12 @@ public class State implements Cloneable, Stateable {
         }
     }
 
-    private boolean eachSquareHasGoal() {
+    public boolean eachSquareHasGoal() {
         boolean squareGoalExist;
+
+        for (Goal goal : this.goals)
+            if(goal.getColor() == Color.NOCOLOR)
+                return true;
 
         for (Square square : this.squares) {
             squareGoalExist = false;
@@ -144,7 +149,7 @@ public class State implements Cloneable, Stateable {
                 }
 
             if (!squareGoalExist) {
-                return true;
+                return false;
             }
         }
 
@@ -211,6 +216,16 @@ public class State implements Cloneable, Stateable {
                     heuristic += Math.abs(goal.x - square.x) + Math.abs(goal.y - square.y);
             }
         }
+
+        return heuristic;
+    }
+
+    @Override
+    public int getAdvancedHeuristic(){
+        int heuristic = this.getHeuristic();
+
+//        if(eachSquareHasGoal())
+//            heuristic = Integer.MAX_VALUE;
 
         return heuristic;
     }
@@ -297,5 +312,18 @@ public class State implements Cloneable, Stateable {
         }
         
         return nextStates;
+    }
+
+    @Override
+    public String toString(){
+        String res = "";
+        for (int i = 0; i <State.grid.length; i++) {
+            for (int j = 0; j <State.grid[0].length; j++) {
+                res += this.at(i,j);
+            }
+            res += '\n';
+        }
+
+        return res;
     }
 }

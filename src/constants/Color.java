@@ -24,8 +24,8 @@ public enum Color {
         this.index = index;
     }
 
-    // TODO: rename method name
-    public static String resetColorCode(){
+    // TODO: rename method
+    private static String resetColorCode(){
         return Color.base + "0" + Color.suffex;
     }
 
@@ -51,7 +51,7 @@ public enum Color {
         }
     }
 
-    public static String formColor(Color fgColor, Color bgColor){
+    private static String formColor(Color fgColor, Color bgColor){
         String result = Color.base;
 
         if(fgColor != null){
@@ -73,6 +73,10 @@ public enum Color {
         }
 
         return "";
+    }
+
+    public static String formColorString(Color fgColor, Color bgColor,String text){
+        return formColor(fgColor,bgColor) + text + resetColorCode();
     }
 
 }
